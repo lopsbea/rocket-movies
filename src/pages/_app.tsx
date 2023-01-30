@@ -1,11 +1,16 @@
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react';
+import { AppProps } from 'next/app';
+import Head from 'next/head';
 
-const App:React.FC<any> = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
-  <ChakraProvider>
-    <Component {...pageProps} />
-  </ChakraProvider>
-    )
-}
+    <ChakraProvider>
+      <Head>
+        <title>RocketMovies</title>
+      </Head>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  );
+};
 
 export default App;
