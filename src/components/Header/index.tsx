@@ -1,8 +1,10 @@
 import { Flex, Heading } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import { Input } from '../Input';
 import UserHeader from '../UserHeader';
 
 export default function Header() {
+  const { push } = useRouter();
   return (
     <Flex
       w="100%"
@@ -13,10 +15,21 @@ export default function Header() {
       alignItems="center"
       borderBottom="1px solid #3E3B47"
     >
-      <Heading fontSize="24px" fontWeight="700" color="#FF859B">
+      <Heading
+        fontSize="24px"
+        fontWeight="700"
+        color="#FF859B"
+        onClick={() => push('/home')}
+        _hover={{ cursor: 'pointer' }}
+      >
         RocketMovies
       </Heading>
-      <Input placeholder="Pesquisar pelo Título" w="60%" />
+      <Input
+        ml="1rem"
+        placeholder="Pesquisar pelo Título"
+        w="90%"
+        textOverflow="ellipsis"
+      />
       <UserHeader />
     </Flex>
   );

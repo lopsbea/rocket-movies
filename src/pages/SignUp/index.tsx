@@ -1,19 +1,20 @@
 import { Input } from '@/components/Input';
 import LoginLayout from '@/components/LoginLayout';
-import { Button, Flex, IconButton, Text } from '@chakra-ui/react';
+import { Flex, IconButton, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { BiLockAlt } from 'react-icons/bi';
 import { FiUser } from 'react-icons/fi';
 import { HiOutlineEnvelope } from 'react-icons/hi2';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { useRouter } from 'next/router';
+import PinkButton from '@/components/PinkButton';
 
 export default function SignUp() {
   const { push } = useRouter();
 
   const onSubmit = (e: React.FormEvent<HTMLDivElement>) => {
     e.preventDefault();
-    push('/Login');
+    push('/login');
   };
 
   return (
@@ -23,18 +24,10 @@ export default function SignUp() {
         <Input placeholder="E-mail" type="email" icon={<HiOutlineEnvelope />} />
         <Input placeholder="Senha" type="password" icon={<BiLockAlt />} />
 
-        <Button
-          size="lg"
-          bg="#FF859B"
-          color="#312E38"
-          type="submit"
-          _hover={{}}
-        >
-          Cadastrar
-        </Button>
+        <PinkButton type="submit" label="Cadastrar" />
       </Flex>
 
-      <Link href="../Login">
+      <Link href="../login">
         <Text textAlign="center" fontWeight="500" color="#FF859B" size="2xl">
           <IconButton
             backgroundColor="transparent"
